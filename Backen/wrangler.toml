@@ -1,0 +1,11 @@
+name = "backen"
+main = "src/index.ts"
+compatibility_date = "2024-10-13"
+compatibility_flags = [ "nodejs_compat" ]
+
+# [vars]
+# MY_VAR = "my-variable"
+[vars]
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiODE5ZDNmOTUtMjQ3NS00YzFhLTg1M2MtYjQ3NjdhOTRlNGYyIiwidGVuYW50X2lkIjoiOGVkNmZlMzRjZTM0N2IwZWMwNzExZTY2YTU0OTdkYjljNGRmMTI2N2RkODA2ODQ5NTY1NDM3YWMxZGM1YjM1ZCIsImludGVybmFsX3NlY3JldCI6IjZiOGYxMDQ0LWU5NjItNDgyYi1hODM3LTNjNzYxZDcyMjMyYyJ9.ZexM0N5YIMlqkNXtFokKl7pOtrYbslVREl-88mrAd_s"
+
+# DIRECT_URL="<YOUR_DATABASE_CONNECTION_STRING>"
