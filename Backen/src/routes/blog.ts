@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { jwt, sign, verify } from "hono/jwt";
 import { auth } from "hono/utils/basic-auth";
+import { CreateblogInput,updateBlogInput } from "@ayush_786/medium-common";
 export const blogrouter = new Hono<{
   Bindings: {
     DATABASE_URL: string;
@@ -29,6 +30,14 @@ blogrouter.post("/create", async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
+  const {success}=CreateblogInput.safeParse(body);
+  if(success)
+  {
+    c.status(403);
+    c.json({
+      message:"Invalid credentials"
+    })
+  }
   const blog = await prisma.post.create({
       data: {
         title: body.title,
@@ -47,6 +56,14 @@ blogrouter.put("/change",async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
+  const {success}=updateBlogInput.safeParse(body);
+  if(success)
+  {
+    c.status(403);
+    c.json({
+      message:"Invalid credentials"
+    })
+  }
   const blog = await prisma.post.update({
     where:{
       id:body.id
